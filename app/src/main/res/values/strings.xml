@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Daily Code</string>
+    <string name="widget_label">Daily Code</string>
+    <string name="widget_description">A new C or Python coding challenge every day</string>
+
+    <!-- Placeholder text shown in the widget picker preview -->
+    <string name="sample_lang">PYTHON</string>
+    <string name="sample_difficulty">Easy</string>
+    <string name="sample_meta">Day 1</string>
+    <string name="sample_title">Reverse a String</string>
+    <string name="sample_prompt">Write a function that reverses a string in place, then print the result.</string>
+
+    <string name="widget_hint">💡 Hint</string>
+    <string name="widget_mark_solved">Mark solved</string>
+
+    <string name="label_language">Language</string>
+    <string name="mode_mix">Mix</string>
+    <string name="mode_c">C</string>
+    <string name="mode_python">Python</string>
+    <string name="label_bonus">BONUS</string>
+    <string name="label_expected_output">Expected output</string>
+    <string name="label_hint">💡 Hint</string>
+    <string name="label_solution">Solution</string>
+    <string name="btn_copy">Copy question</string>
+    <string name="btn_bonus">Bonus question</string>
+    <string name="tip_widget">Add the widget: long-press an empty spot on your home screen, tap Widgets, find Daily Code and drag it into place. Stretch it taller to see the whole question.\n\nMix alternates Python and C each day. Questions start easy and get harder as the days go on.</string>
+</resources>
