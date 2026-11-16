@@ -1,0 +1,50 @@
+=== Solutions through Runner.check (Compiler Explorer first) ===
+c01: PASS in 859ms
+c30: PASS in 446ms
+py01: PASS in 406ms
+py30: PASS in 387ms
+
+=== Wandbox backup path ===
+c01 via Wandbox: PASS
+py01 via Wandbox: PASS
+
+=== Broken programs (what the learner would see) ===
+[C compile error] kind=2 in 413ms
+  Your code doesn't compile
+  main.c: In function 'main':
+  main.c:3:19: error: expected ';' before 'return'
+      3 |     printf("hi\n")
+        |                   ^
+        |                   ;
+      4 |     return 0;
+        |     ~~~~~~
+[C wrong answer] kind=1 in 437ms
+  ✗ Not quite
+  Your output:
+  Sum: 100
+  Average: 18
+  
+  First difference, line 1:
+    expected: Sum: 108
+    yours:    Sum: 100
+[C crash] kind=2 in 721ms
+  Your program hit an error
+  Program terminated with signal SIGSEGV (11)
+[Python syntax error] kind=2 in 446ms
+  Your code has a syntax error
+  File "main.py", line 1
+      print("hi"
+           ^
+  SyntaxError: '(' was never closed
+[Python exception] kind=2 in 528ms
+  Your program hit an error
+  Traceback (most recent call last):
+    File "main.py", line 2, in <module>
+      print(x[5])
+            ~^^^
+  IndexError: list index out of range
+[Python infinite loop] kind=3 in 20428ms
+  Your program ran too long
+  It was stopped after about 20 seconds. Check for a loop that never ends.
+
+FAILURES: 0
