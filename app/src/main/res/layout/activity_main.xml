@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg">
+
+<ScrollView
     android:id="@+id/scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_bg"
     android:clipToPadding="false"
     android:fillViewport="true">
 
@@ -155,6 +160,107 @@
             </HorizontalScrollView>
         </LinearLayout>
 
+        <!-- Answer box -->
+        <LinearLayout
+            android:id="@+id/answer_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/SectionLabel"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/label_your_answer" />
+
+                <TextView
+                    android:id="@+id/btn_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:text="@string/btn_reset"
+                    android:textColor="@color/accent"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/code_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/code_bg"
+                android:fontFamily="monospace"
+                android:gravity="top|start"
+                android:hint="@string/code_hint"
+                android:imeOptions="flagNoExtractUi"
+                android:importantForAutofill="no"
+                android:inputType="textMultiLine|textNoSuggestions|textVisiblePassword"
+                android:lineSpacingExtra="2dp"
+                android:minLines="8"
+                android:padding="14dp"
+                android:textColor="@color/code_text"
+                android:textColorHint="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/symbol_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <Button
+                android:id="@+id/btn_run"
+                style="@style/PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:text="@string/btn_run" />
+
+            <LinearLayout
+                android:id="@+id/result_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/result_good"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/result_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/result_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="2dp"
+                    android:textColor="@color/text_primary"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -230,7 +336,7 @@
 
         <Button
             android:id="@+id/btn_solved"
-            style="@style/PrimaryButton"
+            style="@style/SecondaryButton"
             android:layout_width="match_parent"
             android:layout_marginTop="16dp" />
 
@@ -266,3 +372,4 @@
             android:textSize="13sp" />
     </LinearLayout>
 </ScrollView>
+</FrameLayout>

@@ -12,7 +12,7 @@
     <string name="sample_prompt">Write a function that reverses a string in place, then print the result.</string>
 
     <string name="widget_hint">💡 Hint</string>
-    <string name="widget_mark_solved">Mark solved</string>
+    <string name="widget_answer">✏️ Answer</string>
 
     <string name="label_language">Language</string>
     <string name="mode_mix">Mix</string>
@@ -24,5 +24,10 @@
     <string name="label_solution">Solution</string>
     <string name="btn_copy">Copy question</string>
     <string name="btn_bonus">Bonus question</string>
-    <string name="tip_widget">Add the widget: long-press an empty spot on your home screen, tap Widgets, find Daily Code and drag it into place. Stretch it taller to see the whole question.\n\nMix alternates Python and C each day. Questions start easy and get harder as the days go on.</string>
+    <string name="label_your_answer">Your answer</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_run">▶  Run &amp; check</string>
+    <string name="btn_running">Running…</string>
+    <string name="code_hint">Type your code here…</string>
+    <string name="tip_widget">Tap ✏️ Answer on the widget to jump straight to the answer box. Run &amp; check sends your code to Compiler Explorer, a free online code runner, and compares what it prints with the expected output, so it needs an internet connection. Your code is saved as you type.\n\nMix alternates Python and C each day. Questions start easy and get harder as the days go on. Stretch the widget taller to see the whole question.</string>
 </resources>

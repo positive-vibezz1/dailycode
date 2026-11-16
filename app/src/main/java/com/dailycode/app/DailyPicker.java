@@ -91,6 +91,16 @@ public final class DailyPicker {
         prefs(context).edit().putStringSet(KEY_SOLVED, solved).apply();
     }
 
+    /** Marks today as solved. Returns true if it wasn't already. */
+    public static boolean markSolvedToday(Context context) {
+        Set<String> solved = solvedDays(context);
+        boolean added = solved.add(Long.toString(today()));
+        if (added) {
+            prefs(context).edit().putStringSet(KEY_SOLVED, solved).apply();
+        }
+        return added;
+    }
+
     /** Consecutive solved days ending today (or yesterday, if today isn't done yet). */
     public static int streak(Context context) {
         Set<String> solved = solvedDays(context);

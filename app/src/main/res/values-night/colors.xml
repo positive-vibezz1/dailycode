@@ -20,4 +20,8 @@
     <color name="on_btn_primary">@android:color/system_accent1_900</color>
     <color name="btn_secondary">@android:color/system_accent2_700</color>
     <color name="on_btn_secondary">@android:color/system_accent2_50</color>
+    <color name="result_good_bg">#1D3A27</color>
+    <color name="result_good_text">#A6E8B8</color>
+    <color name="result_bad_bg">#4A1F1C</color>
+    <color name="result_bad_text">#F6B8B1</color>
 </resources>

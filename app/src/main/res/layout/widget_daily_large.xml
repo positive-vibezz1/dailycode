@@ -105,7 +105,7 @@
             android:layout_weight="1"
             android:background="@drawable/btn_primary"
             android:gravity="center"
-            android:text="@string/widget_mark_solved"
+            android:text="@string/widget_answer"
             android:textColor="@color/on_btn_primary"
             android:textSize="13sp"
             android:textStyle="bold" />

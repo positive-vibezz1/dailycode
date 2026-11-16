@@ -43,7 +43,12 @@ jobs:
       - name: Check online code runner
         if: always()
         continue-on-error: true
-        run: python3 tools/check_runner.py runner-check.txt --all
+        run: |
+          curl -sSfL -o "$RUNNER_TEMP/json.jar" https://repo1.maven.org/maven2/org/json/json/20240303/json-20240303.jar
+          javac -d "$RUNNER_TEMP/rc" -cp "$RUNNER_TEMP/json.jar" \
+            app/src/main/java/com/dailycode/app/Runner.java tools/RunnerCheck.java
+          set -o pipefail
+          java -cp "$RUNNER_TEMP/rc:$RUNNER_TEMP/json.jar" RunnerCheck app/src/main/assets/questions.json 2>&1 | tee runner-check.txt
 
       # Keeps the latest APK and build log on the build-output branch (handy for debugging).
       - name: Save build output

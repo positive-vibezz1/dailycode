@@ -22,4 +22,8 @@
     <color name="on_btn_secondary">@android:color/system_accent2_900</color>
 
     <color name="ic_launcher_bg">#3949AB</color>
+    <color name="result_good_bg">#DDF3E3</color>
+    <color name="result_good_text">#0F5223</color>
+    <color name="result_bad_bg">#FBE3E0</color>
+    <color name="result_bad_text">#8C1D18</color>
 </resources>

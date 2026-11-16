@@ -5,9 +5,9 @@ Tap it for the full question, a hint, the expected output and a worked solution.
 
 - **60 challenges** (30 C + 30 Python), ordered from easy to hard
 - **Mix mode** alternates Python and C each day, or pick just one language
-- **Streaks:** tap *Mark solved* on the widget or in the app to build your 🔥 streak
+- **Answer box:** type your code in the app and tap *Run & check*. A correct answer marks the day solved and builds your 🔥 streak
 - **Material You:** the widget follows your wallpaper colours and dark mode
-- Works offline: no account, no internet, no ads, no permissions
+- No account and no ads. Questions work offline; checking an answer needs internet
 
 ---
 
@@ -59,7 +59,9 @@ to see the whole question on your home screen.
 |---|---|
 | Widget | Shows today's language, difficulty, day number, streak, title and question |
 | Widget → 💡 Hint | Opens the app with the hint already showing |
-| Widget → Mark solved | Marks today as done (tap again to undo) |
+| Widget → ✏️ Answer | Opens the app with the keyboard ready in the answer box |
+| App → Your answer | Type your code, with a row of coding symbols and auto-indent. Drafts save as you type |
+| App → Run & check | Runs your code and compares what it prints with the expected output |
 | App | Full question, expected output, hint, solution, copy button, bonus questions |
 | App → Language | **Mix** (alternating), **C** only, or **Python** only |
 
@@ -68,6 +70,15 @@ to see the whole question on your home screen.
 - In Mix mode, the 60 questions last two months, then start again.
 - **Copy question** puts the challenge on your clipboard, ready to paste as a
   comment into whatever code editor you use.
+
+## How answers are checked
+
+*Run & check* sends your code to [Compiler Explorer](https://godbolt.org), a free
+online code runner (GCC for C, CPython for Python), with [Wandbox](https://wandbox.org)
+as a backup. The app compares what your program prints with the expected output,
+ignoring trailing spaces and blank lines at the end. If it doesn't match, it shows
+the first line that differs, or the compiler or Python error. Programs are stopped
+after about 20 seconds.
 
 ## Add your own questions
 

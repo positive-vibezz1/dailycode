@@ -17,11 +17,10 @@ import java.util.Map;
 
 /** Home-screen widget that shows today's coding challenge. */
 public class DailyCodeWidget extends AppWidgetProvider {
-    public static final String ACTION_TOGGLE_SOLVED = "com.dailycode.app.action.TOGGLE_SOLVED";
     public static final String ACTION_REFRESH = "com.dailycode.app.action.REFRESH";
 
     private static final int REQ_OPEN = 0;
-    private static final int REQ_TOGGLE = 1;
+    private static final int REQ_ANSWER = 1;
     private static final int REQ_HINT = 2;
     private static final int REQ_MIDNIGHT = 3;
 
@@ -51,10 +50,7 @@ public class DailyCodeWidget extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         String action = intent.getAction();
-        if (ACTION_TOGGLE_SOLVED.equals(action)) {
-            DailyPicker.toggleSolvedToday(context);
-            updateAll(context);
-        } else if (ACTION_REFRESH.equals(action)) {
+        if (ACTION_REFRESH.equals(action)) {
             updateAll(context);
         }
     }
@@ -95,20 +91,23 @@ public class DailyCodeWidget extends AppWidgetProvider {
         v.setTextViewText(R.id.text_title, q.title);
         v.setTextViewText(R.id.text_prompt, q.prompt);
 
-        v.setTextViewText(R.id.btn_solved, solved ? "\u2713 Solved" : "Mark solved");
+        v.setTextViewText(R.id.btn_solved, solved ? "\u2713 Solved" : "\u270F\uFE0F Answer");
         v.setInt(R.id.btn_solved, "setBackgroundResource", solved ? R.drawable.btn_done : R.drawable.btn_primary);
 
-        v.setOnClickPendingIntent(android.R.id.background, openApp(context, false));
-        v.setOnClickPendingIntent(R.id.btn_hint, openApp(context, true));
-        v.setOnClickPendingIntent(R.id.btn_solved, broadcast(context, ACTION_TOGGLE_SOLVED, REQ_TOGGLE));
+        v.setOnClickPendingIntent(android.R.id.background, openApp(context, null, REQ_OPEN));
+        v.setOnClickPendingIntent(R.id.btn_hint, openApp(context, MainActivity.EXTRA_SHOW_HINT, REQ_HINT));
+        v.setOnClickPendingIntent(R.id.btn_solved, openApp(context, MainActivity.EXTRA_FOCUS_ANSWER, REQ_ANSWER));
         return v;
     }
 
-    private static PendingIntent openApp(Context context, boolean showHint) {
+    /** Opens the app; the optional extra asks it to show the hint or jump to the answer box. */
+    private static PendingIntent openApp(Context context, String extra, int requestCode) {
         Intent intent = new Intent(context, MainActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .putExtra(MainActivity.EXTRA_SHOW_HINT, showHint);
-        return PendingIntent.getActivity(context, showHint ? REQ_HINT : REQ_OPEN, intent,
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        if (extra != null) {
+            intent.putExtra(extra, true);
+        }
+        return PendingIntent.getActivity(context, requestCode, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
