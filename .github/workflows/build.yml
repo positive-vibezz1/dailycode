@@ -39,12 +39,18 @@ jobs:
             --notes "Open this page on your Pixel and tap **DailyCode.apk** to download and install it." \
             --latest
 
+      # Smoke-tests the free online code runner the app uses to check answers.
+      - name: Check online code runner
+        if: always()
+        continue-on-error: true
+        run: python3 tools/check_runner.py runner-check.txt --all
+
       # Keeps the latest APK and build log on the build-output branch (handy for debugging).
       - name: Save build output
         if: always()
         run: |
           mkdir -p "$RUNNER_TEMP/out"
-          cp build.log DailyCode.apk "$RUNNER_TEMP/out/" 2>/dev/null || true
+          cp build.log DailyCode.apk runner-check.txt "$RUNNER_TEMP/out/" 2>/dev/null || true
           printf 'status: %s\ncommit: %s\nrun: %s\n' "${{ job.status }}" "${{ github.sha }}" "${{ github.run_number }}" > "$RUNNER_TEMP/out/status.txt"
           cd "$RUNNER_TEMP/out"
           git init -q -b build-output
